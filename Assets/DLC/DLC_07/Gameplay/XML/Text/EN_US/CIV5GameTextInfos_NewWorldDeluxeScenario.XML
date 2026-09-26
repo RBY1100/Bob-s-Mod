@@ -510,7 +510,7 @@
 			<Text>Until Columbus imported horses to the West Indies on his second voyage in 1493 AD, there were no equines surviving in the Americas. Descended from stock abandoned by conquistadors, various breeds spread quickly across the North American plains, where the heretofore primitive nomads quickly made the horse the mainstay of their society and culture.</Text>
 		</Row>
 		<Row Tag="TXT_KEY_POLICY_MERCHANT_CONFEDERACY_NWS_HELP">
-			<Text>[COLOR_POSITIVE_TEXT]Merchant Confederacy[ENDCOLOR][NEWLINE]+2 [ICON_GOLD] Gold for trade routes with City States. Gain 4 more [ICON_INFLUENCE] Influence per turn (at Standard speed) with City-States you have a trade route with.</Text>
+			<Text>[COLOR_POSITIVE_TEXT]Merchant Confederacy[ENDCOLOR][NEWLINE]Gain 2 more [ICON_INFLUENCE] Influence per turn (at Standard speed) with City-States you have a trade route with.</Text>
 		</Row>
 		<Row Tag="TXT_KEY_POLICY_OVERSEAS_EMPIRE">
 			<Text>Overseas Empire</Text>

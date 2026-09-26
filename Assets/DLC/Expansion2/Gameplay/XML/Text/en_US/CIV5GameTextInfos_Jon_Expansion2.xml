@@ -67,7 +67,7 @@
 		<Row Tag="TXT_KEY_POLICY_BRANCH_AESTHETICS_HELP">
 			<Text>[COLOR_POSITIVE_TEXT]Aesthetics[ENDCOLOR] improves the civilization's ability to generate [ICON_CULTURE] Culture.[NEWLINE][NEWLINE]Adopting Aesthetics grants +50% [ICON_PRODUCTION] towards constructing Monuments, Amphitheaters, Opera Houses, Museums and Broadcast Towers. Unlocks building the Uffizi.[NEWLINE][NEWLINE]Adopting all policies doubles the theming bonus you receive from Museums and Wonders and a Great Artist, Writer and Musician appears. It also allows the purchase of Great Writers, Artists, or Musicians with [ICON_PEACE] Faith starting in the Industrial Era.</Text>
 		</Row>
-		<Row Tag="TXT_KEY_POLICY_CULTURAL_CENTERS">Construct Monuments, Amphitheaters, Opera Houses, Museums and Broadcast Towers 50% faster.
+		<Row Tag="TXT_KEY_POLICY_CULTURAL_CENTERS">
 			<Text>Artistic Collaboration</Text>
 		</Row>
 		<Row Tag="TXT_KEY_POLICY_CULTURAL_CENTERS_HELP">
@@ -894,7 +894,7 @@
 			<Text>More commonly referred to as a commercial league or trading guild, a Merchant Confederacy is created to protect the economic interests and diplomatic privileges of merchants in cities and nations along trade routes. Although these confederations of merchants had no official standing, several – such as the Company of Merchant Adventurers of London (founded 1407 AD) and the even more powerful Hanseatic League (formed c. 1356) – had significant economic influence and dominated specific trade routes for lengthy periods. During the early Renaissance, merchant confederations were established in city-states such as Venice and Genoa to protect the interests of traders in certain commodities while abroad. These merchant leagues reached their peak during the 15th and 16th centuries, but declined thereafter as national governments and crown-chartered companies gradually assumed the regulatory and diplomatic responsibilities the leagues had formerly held.</Text>
 		</Row>
 		<Row Tag="TXT_KEY_POLICY_MERCHANT_CONFEDERACY_HELP">
-			<Text>[COLOR_POSITIVE_TEXT]Merchant Confederacy[ENDCOLOR][NEWLINE]+2 [ICON_GOLD] Gold and +2 [ICON_INFLUENCE] Influence for trade routes with City-States.</Text>
+			<Text>[COLOR_POSITIVE_TEXT]Merchant Confederacy[ENDCOLOR][NEWLINE]+2 [ICON_INFLUENCE] Influence for trade routes with City-States.</Text>
 		</Row>
 		<Row Tag="TXT_KEY_FREE_TENETS_LABEL">
 			<Text>Number of Free Tenets: {1_Num}</Text>
@@ -960,6 +960,9 @@
 			<Text>You have discovered a [COLOR_HIGHLIGHT_TEXT]Hidden Antiquity Site[ENDCOLOR] near {@1_CityName}!</Text>
 		</Row>
 	</Language_en_US>
+</GameData>quity Site[ENDCOLOR] near {@1_CityName}!</Text>
+		</Row>
+	</Language_en_US>
 </GameData>
 tiquity Site[ENDCOLOR] near {@1_CityName}!</Text>
 		</Row>
@@ -977,5 +980,8 @@ tiquity Site[ENDCOLOR] near {@1_CityName}!</Text>
 </GameData>
 S>
 </GameData>
+>
+</GameData>
+eData>
 >
 </GameData>

@@ -187,6 +187,7 @@
 			<Description>TXT_KEY_BELIEF_GOD_CRAFTSMEN</Description>
 			<ShortDescription>TXT_KEY_BELIEF_GOD_CRAFTSMEN_SHORT</ShortDescription>
 			<Pantheon>true</Pantheon>
+			<MinPopulation>2</MinPopulation>
 		</Row>
 		<Row>
 			<Type>BELIEF_GOD_SEA</Type>

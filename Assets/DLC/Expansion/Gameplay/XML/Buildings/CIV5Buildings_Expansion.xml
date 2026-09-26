@@ -458,7 +458,7 @@
 			<BuildingClass>BUILDINGCLASS_WINDMILL</BuildingClass>
 			<Cost>250</Cost>
 			<GoldMaintenance>2</GoldMaintenance>
-			<PrereqTech>TECH_ECONOMICS</PrereqTech>
+			<PrereqTech>TECH_PRINTING_PRESS</PrereqTech>
 			<Description>TXT_KEY_BUILDING_COFFEE_HOUSE</Description>
 			<Civilopedia>TXT_KEY_CIV5_BUILDINGS_COFFEE_HOUSE_TEXT</Civilopedia>
 			<Strategy>TXT_KEY_BUILDING_COFFEE_HOUSE_STRATEGY</Strategy>

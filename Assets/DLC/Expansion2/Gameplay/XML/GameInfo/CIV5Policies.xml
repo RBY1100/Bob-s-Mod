@@ -738,7 +738,6 @@
 			<CultureCost>10</CultureCost>
 			<GridX>4</GridX>
 			<GridY>1</GridY>
-			<CityStateTradeChange>200</CityStateTradeChange>
 			<ProtectedMinorPerTurnInfluence>200</ProtectedMinorPerTurnInfluence>
 			<PortraitIndex>41</PortraitIndex>
 			<IconAtlas>POLICY_ATLAS</IconAtlas>
@@ -1063,8 +1062,8 @@
 			<Help>TXT_KEY_POLICY_NAVAL_TRADITION_HELP</Help>
 			<PolicyBranchType>POLICY_BRANCH_EXPLORATION</PolicyBranchType>
 			<CultureCost>10</CultureCost>
-			<GridX>2</GridX>
-			<GridY>3</GridY>
+			<GridX>4</GridX>
+			<GridY>1</GridY>
 			<PortraitIndex>8</PortraitIndex>
 			<IconAtlas>POLICY_ATLAS</IconAtlas>
 			<IconAtlasAchieved>POLICY_A_ATLAS</IconAtlasAchieved>
@@ -1076,8 +1075,8 @@
 			<Help>TXT_KEY_POLICY_MERCHANT_NAVY_HELP</Help>
 			<PolicyBranchType>POLICY_BRANCH_EXPLORATION</PolicyBranchType>
 			<CultureCost>10</CultureCost>
-			<GridX>4</GridX>
-			<GridY>1</GridY>
+			<GridX>2</GridX>
+			<GridY>3</GridY>
 			<PortraitIndex>10</PortraitIndex>
 			<IconAtlas>POLICY_ATLAS</IconAtlas>
 			<IconAtlasAchieved>POLICY_A_ATLAS</IconAtlasAchieved>
@@ -3640,12 +3639,12 @@
 			<PrereqPolicy>POLICY_PROTECTIONISM</PrereqPolicy>
 		</Row>
 		<Row>
-			<PolicyType>POLICY_NAVAL_TRADITION</PolicyType>
-			<PrereqPolicy>POLICY_MARITIME_INFRASTRUCTURE</PrereqPolicy>
+			<PolicyType>POLICY_MARITIME_INFRASTRUCTURE</PolicyType>
+			<PrereqPolicy>POLICY_NAVAL_TRADITION</PrereqPolicy>
 		</Row>
 		<Row>
-			<PolicyType>POLICY_MARITIME_INFRASTRUCTURE</PolicyType>
-			<PrereqPolicy>POLICY_MERCHANT_NAVY</PrereqPolicy>
+			<PolicyType>POLICY_MERCHANT_NAVY</PolicyType>
+			<PrereqPolicy>POLICY_MARITIME_INFRASTRUCTURE</PrereqPolicy>
 		</Row>
 		<Row>
 			<PolicyType>POLICY_MARITIME_INFRASTRUCTURE</PolicyType>
@@ -3653,7 +3652,7 @@
 		</Row>
 		<Row>
 			<PolicyType>POLICY_NAVIGATION_SCHOOL</PolicyType>
-			<PrereqPolicy>POLICY_MERCHANT_NAVY</PrereqPolicy>
+			<PrereqPolicy>POLICY_NAVAL_TRADITION</PrereqPolicy>
 		</Row>
 		<Row>
 			<PolicyType>POLICY_FREE_THOUGHT</PolicyType>

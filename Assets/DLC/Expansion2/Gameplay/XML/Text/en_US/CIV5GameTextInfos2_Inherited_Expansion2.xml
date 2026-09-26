@@ -140,7 +140,6 @@
 		<Row Tag="TXT_KEY_BUILDING_INTELLIGENCE_AGENCY_HELP">
 			<Text>Provides an additional spy and levels up all your existing spies. Also provides a 15% reduction in enemy spy effectiveness. Must have a Constabulary in all cities.</Text>
 		</Row>
-		</Row>
 		<Row Tag="TXT_KEY_BUILDING_STOCKHOLM_HALL_HELP">
 			<Text>For each unique Great Person expended, you get an additional +1 Delegate</Text>
 		</Row>
@@ -1303,7 +1302,7 @@
 			<Text>10% faster [ICON_FOOD] Growth Rate</Text>
 		</Row>
 		<Row Tag="TXT_KEY_BELIEF_GOD_CRAFTSMEN">
-			<Text>+2 [ICON_PRODUCTION] Production in cities</Text>
+			<Text>+2 [ICON_PRODUCTION] Production in cities with a pop of 2+</Text>
 		</Row>
 		<Row Tag="TXT_KEY_BELIEF_GOD_SEA">
 			<Text>+1 [ICON_PEACE] Faith from Fishing Boats</Text>
@@ -1683,12 +1682,3 @@
 		</Row>
 	</Language_en_US>
 </GameData>
-_en_US>
-</GameData>
-ameData>
-ameData>
-ameData>
-ta>
-ameData>
-
-
