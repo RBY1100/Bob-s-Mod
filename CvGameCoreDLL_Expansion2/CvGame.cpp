@@ -96,6 +96,7 @@ CvGame::CvGame() :
 	, m_pDiploResponseQuery(NULL)
 	, m_bFOW(true)
 	, m_bArchaeologyTriggered(false)
+	, m_bHiddenArchaeologyTriggered(false)
 	, m_lastTurnAICivsProcessed(-1)
 {
 	m_aiEndTurnMessagesReceived = FNEW(int[MAX_PLAYERS], c_eCiv5GameplayDLL, 0);
@@ -374,6 +375,7 @@ void CvGame::init(HandicapTypes eHandicap)
 	}
 
 	m_bArchaeologyTriggered = false;
+	m_bHiddenArchaeologyTriggered = false;
 	CvGoodyHuts::Reset();
 
 	doUpdateCacheOnTurn();
@@ -1019,6 +1021,7 @@ void CvGame::uninit()
 	m_bEverRightClickMoved = false;
 	m_bCombatWarned = false;
 	m_bArchaeologyTriggered = false;
+	m_bHiddenArchaeologyTriggered = false;
 
 	m_eHandicap = NO_HANDICAP;
 	m_ePausePlayer = NO_PLAYER;
@@ -9407,6 +9410,7 @@ void CvGame::Read(FDataStream& kStream)
 	}
 
 	kStream >> m_bArchaeologyTriggered;
+	kStream >> m_bHiddenArchaeologyTriggered;
 
 	kStream >> m_iEarliestBarbarianReleaseTurn;
 	kStream >> m_kGameDeals;
@@ -9582,6 +9586,7 @@ void CvGame::Write(FDataStream& kStream) const
 	kStream << m_aPlotExtraCosts;
 
 	kStream << m_bArchaeologyTriggered;
+	kStream << m_bHiddenArchaeologyTriggered;
 
 	kStream << m_iEarliestBarbarianReleaseTurn;
 
@@ -11034,8 +11039,29 @@ void CvGame::TriggerArchaeologySiteCreation(bool bCheckInitialized)
 	{
 		if (!bCheckInitialized || isFinalInitialized())
 		{
-			SpawnArchaeologySitesHistorically();
+			SpawnArchaeologySitesHistorically(false);
 			m_bArchaeologyTriggered = true;
+		}
+	}
+}
+
+
+//	--------------------------------------------------------------------------------
+bool CvGame::IsHiddenArchaeologyTriggered() const
+{
+	return m_bHiddenArchaeologyTriggered;
+}
+
+//	--------------------------------------------------------------------------------
+
+void CvGame::TriggerHiddenArchaeologySiteCreation(bool bCheckInitialized)
+{
+	if (!m_bHiddenArchaeologyTriggered)
+	{
+		if (!bCheckInitialized || isFinalInitialized())
+		{
+			SpawnArchaeologySitesHistorically(true);
+			m_bHiddenArchaeologyTriggered = true;
 		}
 	}
 }
@@ -11208,7 +11234,7 @@ int CvGame::GetNumArchaeologySites() const
 //	--------------------------------------------------------------------------------
 int CvGame::GetNumHiddenArchaeologySites() const
 {
-	if (!IsArchaeologyTriggered())
+	if (!IsHiddenArchaeologyTriggered())
 	{
 		return -1;
 	}
@@ -11306,7 +11332,7 @@ void CvGame::PopulateDigSite(CvPlot& kPlot, EraTypes eEra, GreatWorkArtifactClas
 	kPlot.AddArchaeologicalRecord(digSite.m_eArtifactType, digSite.m_eEra, digSite.m_ePlayer1, digSite.m_ePlayer2);
 }
 //	--------------------------------------------------------------------------------
-void CvGame::SpawnArchaeologySitesHistorically()
+void CvGame::SpawnArchaeologySitesHistorically(bool bHiddenSites)
 {
 	CvMap& theMap = GC.getMap();
 	const int iGridWidth = theMap.getGridWidth();
@@ -11411,12 +11437,18 @@ void CvGame::SpawnArchaeologySitesHistorically()
 					GreatWorkArtifactClass eArtifact = aRandomArtifacts[getJonRandNum(aRandomArtifactsCount, "Artifact type for non-historical dig site")];
 
 					PopulateDigSite(*pPlot, eEra, eArtifact);
-
-					//Record in scratch space for weights.
-					scratchDigSites[i] = pPlot->GetArchaeologicalRecord();
+					
 				}
 
-				iHowManyChosenDigSites++;
+				//Record in scratch space for weights.
+				scratchDigSites[i] = pPlot->GetArchaeologicalRecord();
+
+				// Only count sites of the type we are currently generating
+				if((bHiddenSites && eResource == eHiddenArtifactResourceType) ||
+				(!bHiddenSites && eResource == eArtifactResourceType))
+				{
+					iHowManyChosenDigSites++;
+				}
 			}
 
 			historicalDigSites[i] = pPlot->GetArchaeologicalRecord();
@@ -11451,8 +11483,13 @@ void CvGame::SpawnArchaeologySitesHistorically()
 		}
 	}
 
-	int iApproxNumHiddenSites = iIdealNumDigSites * GC.getPERCENT_SITES_HIDDEN() / 100;
-	int iNumDesiredWritingSites = iApproxNumHiddenSites * GC.getPERCENT_HIDDEN_SITES_WRITING() / 100;
+	int iNumDesiredWritingSites = 0;
+
+	if (bHiddenSites)
+	{
+		iNumDesiredWritingSites = iIdealNumDigSites * GC.getPERCENT_HIDDEN_SITES_WRITING() / 100;
+	}
+
 	int iNumWritingSites = min((int)aWorksWriting.size(), iNumDesiredWritingSites);
 
 	// while we are not in the proper range of number of dig sites
@@ -11475,9 +11512,8 @@ void CvGame::SpawnArchaeologySitesHistorically()
 		int iBestSite = aDigSiteWeights.GetElement(0);
 		CvPlot* pPlot = theMap.plotByIndexUnchecked(iBestSite);
 
-		// Hidden site?
-		bool bHiddenSite = GC.getGame().getJonRandNum(100, "Hidden antiquity site roll") < GC.getPERCENT_SITES_HIDDEN();
-		if (bHiddenSite)
+		// Set the site type based on which archaeology batch is being generated
+		if (bHiddenSites)
 		{
 			pPlot->setResourceType(eHiddenArtifactResourceType, 1);
 		}
@@ -11502,7 +11538,7 @@ void CvGame::SpawnArchaeologySitesHistorically()
 		}
 
 		// If this is a hidden slot getting a writing, override a few things
-		if (bHiddenSite && iNumWritingSites > 0)
+		if (bHiddenSites && iNumWritingSites > 0)
 		{
 			// First change the type
 			pPlot->SetArtifactType(CvTypes::getARTIFACT_WRITING());

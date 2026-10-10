@@ -564,6 +564,8 @@ public:
 
 	void TriggerArchaeologySiteCreation(bool bCheckInitialized);
 	bool IsArchaeologyTriggered() const;
+	bool IsHiddenArchaeologyTriggered() const;
+	void TriggerHiddenArchaeologySiteCreation(bool bCheckInitialized);
 	int GetNumArchaeologySites() const;
 	int GetNumHiddenArchaeologySites() const;
 
@@ -654,6 +656,7 @@ protected:
 	TechTypes m_eReligionTech;
 	RouteTypes m_eIndustrialRoute;
 	bool m_bArchaeologyTriggered;
+	bool m_bHiddenArchaeologyTriggered;
 
 	CvString m_strScriptData;
 
@@ -769,7 +772,7 @@ protected:
 	void CheckPlayerTurnDeactivate();
 
 	void PopulateDigSite(CvPlot& kPlot, EraTypes eEra, GreatWorkArtifactClass eArtifact);
-	void SpawnArchaeologySitesHistorically();
+	void SpawnArchaeologySitesHistorically(bool bHiddenSites);
 
 
 };

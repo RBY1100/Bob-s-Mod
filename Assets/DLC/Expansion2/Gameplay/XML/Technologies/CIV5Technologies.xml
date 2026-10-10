@@ -470,7 +470,6 @@
 			<Help>TXT_KEY_TECH_CIVIL_SERVICE_HELP</Help>
 			<Era>ERA_MEDIEVAL</Era>
 			<OpenBordersTradingAllowed>true</OpenBordersTradingAllowed>
-			<TriggersArchaeologicalSites>true</TriggersArchaeologicalSites>
 			<Trade>true</Trade>
 			<GridX>5</GridX>
 			<GridY>4</GridY>
@@ -786,6 +785,7 @@
 			<Civilopedia>TXT_KEY_TECH_ARCHAEOLOGY_DESC</Civilopedia>
 			<Help>TXT_KEY_TECH_ARCHAEOLOGY_HELP</Help>
 			<Era>ERA_INDUSTRIAL</Era>
+			<TriggersArchaeologicalSites>true</TriggersArchaeologicalSites>
 			<Trade>true</Trade>
 			<GridX>9</GridX>
 			<GridY>1</GridY>

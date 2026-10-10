@@ -4,7 +4,7 @@
 	<Resources>
 		<Row>
 			<Type>RESOURCE_ARTIFACTS</Type>
-			<TechReveal>TECH_CIVIL_SERVICE</TechReveal>
+			<TechReveal>TECH_ARCHAEOLOGY</TechReveal>
 			<Description>TXT_KEY_RESOURCE_ARTIFACTS</Description>
 			<Civilopedia>TXT_KEY_CIV5_RESOURCE_ARTIFACTS_TEXT</Civilopedia>
 			<Help>TXT_KEY_RESOURCE_ARTIFACTS_HELP</Help>
@@ -212,3 +212,4 @@
 		</Row>
 	</Resource_FeatureTerrainBooleans>
 </GameData>
+

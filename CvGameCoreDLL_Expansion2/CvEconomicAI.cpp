@@ -2230,10 +2230,10 @@ void CvEconomicAI::DisbandExtraArchaeologists(){
 	int iNumSites = GC.getGame().GetNumArchaeologySites();
 	double dMaxRatio = .5; //Ratio of archaeologists to sites
 	int iNumArchaeologists = m_pPlayer->GetNumUnitsWithUnitAI(UNITAI_ARCHAEOLOGIST, true);
-	PolicyTypes eExpFinisher = (PolicyTypes) GC.getInfoTypeForString("POLICY_EXPLORATION_FINISHER", true /*bHideAssert*/);
-	if (eExpFinisher != NO_POLICY)	
+	PolicyTypes eExploration = (PolicyTypes) GC.getInfoTypeForString("POLICY_EXPLORATION", true /*bHideAssert*/);
+	if (eExploration != NO_POLICY)	
 	{
-		if (m_pPlayer->GetPlayerPolicies()->HasPolicy(eExpFinisher))
+		if (m_pPlayer->GetPlayerPolicies()->HasPolicy(eExploration))
 		{
 			iNumSites += GC.getGame().GetNumHiddenArchaeologySites();
 		}
@@ -4031,11 +4031,10 @@ bool EconomicAIHelpers::IsTestStrategy_EnoughArchaeologists(CvPlayer* pPlayer)
 	int iNumSites = GC.getGame().GetNumArchaeologySites();
 	double iMaxRatio = .5; //Ratio of archaeologists to sites
 	int iNumArchaeologists = pPlayer->GetNumUnitsWithUnitAI(UNITAI_ARCHAEOLOGIST, true);
-	PolicyTypes eExpFinisher = (PolicyTypes) GC.getInfoTypeForString("POLICY_EXPLORATION_FINISHER", true /*bHideAssert*/);
-	
-	if (eExpFinisher != NO_POLICY)
+	PolicyTypes eExploration = (PolicyTypes) GC.getInfoTypeForString("POLICY_EXPLORATION", true /*bHideAssert*/);
+	if (eExploration != NO_POLICY)	
 	{
-		if (pPlayer->GetPlayerPolicies()->HasPolicy(eExpFinisher))
+		if (pPlayer->GetPlayerPolicies()->HasPolicy(eExploration))
 		{
 			iNumSites += GC.getGame().GetNumHiddenArchaeologySites();
 		}

@@ -718,8 +718,8 @@
 			<Sound>AS2D_IF_LEVELUP</Sound>
 			<PromotionPrereqOr1>PROMOTION_ACCURACY_3</PromotionPrereqOr1>
 			<PromotionPrereqOr2>PROMOTION_BARRAGE_3</PromotionPrereqOr2>
-			<PromotionPrereqOr3>PROMOTION_TARGETING_2</PromotionPrereqOr3>
-			<PromotionPrereqOr4>PROMOTION_BOMBARDMENT_2</PromotionPrereqOr4>
+			<PromotionPrereqOr3>PROMOTION_TARGETING_3</PromotionPrereqOr3>
+			<PromotionPrereqOr4>PROMOTION_BOMBARDMENT_3</PromotionPrereqOr4>
 			<OrderPriority>7</OrderPriority>
 			<RangeChange>1</RangeChange>
 			<PortraitIndex>34</PortraitIndex>

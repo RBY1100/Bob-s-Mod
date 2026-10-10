@@ -3014,6 +3014,15 @@ void CvPlayerPolicies::DoUnlockPolicyBranch(PolicyBranchTypes eBranchType)
 	// Set that we now have it
 	SetPolicyBranchUnlocked(eBranchType, true, false);
 
+	// Exploration adopted: generate hidden antiquity sites
+	PolicyBranchTypes eExplorationBranch =
+		(PolicyBranchTypes)GC.getInfoTypeForString("POLICY_BRANCH_EXPLORATION", true);
+
+	if(eExplorationBranch != NO_POLICY_BRANCH_TYPE && eBranchType == eExplorationBranch)
+	{
+		GC.getGame().TriggerHiddenArchaeologySiteCreation(true);
+	}
+
 	// Are we blocked? If so, unblock us
 	DoSwitchToPolicyBranch(eBranchType);
 

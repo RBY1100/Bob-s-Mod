@@ -5,7 +5,7 @@
 	<Builds>
 		<Row>
 			<Type>BUILD_ARCHAEOLOGY_DIG</Type>
-			<PrereqTech>TECH_CIVIL_SERVICE</PrereqTech>
+			<PrereqTech>TECH_ARCHAEOLOGY</PrereqTech>
 			<Time>600</Time>
 			<ImprovementType>IMPROVEMENT_ARCHAEOLOGICAL_DIG</ImprovementType>
 			<Description>TXT_KEY_BUILD_ARCHAEOLOGY_DIG</Description>
